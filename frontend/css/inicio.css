@@ -24,6 +24,9 @@ h2 {
 a {
   text-decoration: none;
 }
+.carousel {
+  padding-top: 4%;
+}
 .titleProdutos {
   padding-top: 2%;
   text-align: center;
