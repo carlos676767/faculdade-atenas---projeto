@@ -6,7 +6,7 @@
   height: 60px;
 }
 .navbar {
-  height: 10%;
+  height: 8%;
 }
 .navbar-opcoes {
   display: flex;
@@ -40,6 +40,17 @@ a {
   display: flex;
   justify-content: center;
 }
+.entreContato {
+  padding: 1%;
+}
 .iconeRede {
   width: 30px;
+}
+.redesSociais {
+  align-items: center;
+  text-align: center;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
