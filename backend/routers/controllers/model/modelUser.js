@@ -1,8 +1,8 @@
 const { Schema, default: mongoose } = require("mongoose");
-const user =  new Schema({
+const usuarioss =  new Schema({
   nome: { type: String, required: true },
   email: { type: String, required: true },
 })
 
-module.exports = mongoose.model("users", user);
+module.exports = mongoose.model("usuariossss", usuarioss);
 
