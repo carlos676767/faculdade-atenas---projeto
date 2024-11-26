@@ -4,11 +4,11 @@ class Usuario {
     try {
       const { nome, email } = req.body;
       console.log(req.body);
-      
+
       Usuario.verificarEmail(email);
       Usuario.verificarValoresInput(nome, email);
       await Usuario.verificarEmailExiste(email);
-      await Usuario.insertDadosUsuario(nome, email, res)
+      await Usuario.insertDadosUsuario(nome, email, res);
     } catch (error) {
       res.status(400).send({ error: error.message });
     }
@@ -18,10 +18,10 @@ class Usuario {
     const emailExiste = await this.db.findOne({ email: email });
 
     if (emailExiste) {
-      throw new Error("O email ja existe em nosso banco de dados, informe outro email.");
+      await this.db.db.close();
+      throw new Error("O email ja existe em nosso banco de dados, informe outro email." );
     }
-
-    // await this.db.db.close();
+    
   }
 
   static verificarValoresInput(nome, email) {
@@ -36,7 +36,6 @@ class Usuario {
     if (!regex.test(email)) {
       throw new Error("Informe um email valido.");
     }
-
   }
 
   static async insertDadosUsuario(nome, email, res) {
@@ -45,12 +44,11 @@ class Usuario {
       await inserirDados.save();
       res.status(201).send({ sucess: `Usuario cadastrado com sucesso!` });
     } catch (error) {
-      console.log(error);
-      
-      throw new Error("falha ao cadastrar usuario, tente novamente mais tarde.");
+      throw new Error("falha ao cadastrar usuario, tente novamente mais tarde." );
+    } finally {
+      await this.db.db.close();
     }
   }
 }
-
 
 module.exports = Usuario;
