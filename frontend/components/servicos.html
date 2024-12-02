@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/frontend/css/inicio.css" />
     <link rel="stylesheet" href="/frontend/css/servicos.css" />
+    <link rel="stylesheet" href="/frontend/css/registro.css">
     <link
       rel="shortcut icon"
       href="/frontend/images/painel-solar-favicon.png"
@@ -33,7 +34,6 @@
           <a  href="/frontend/components/inicio.html"><h2>Início</h2></a>
           <a href="/frontend/components/servicos.html"><h2>Serviços</h2></a>
           <a href="/frontend/components/historia.html"><h2>Nossa História</h2></a>
-          <a href="https://www.bv.com.br/emprestimos/emprestimo-pessoal">emprestimo-pessoal</a>
         </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
 <div class="servico6">
   <a href="#orcamentoPage"> 
   <img src="/frontend/images/servicos/Wavy_Eco-01_Single-04.jpg" alt="" class="imagemServico">
-  <h5>INSTALAÇÃO PLACA SOLARES</h5>
+  <h5>MANUTENÇÃO DE PLACA SOLARES</h5>
   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt aperiam eligendi dolor quisquam ipsa voluptates perspiciatis aliquid suscipit, quia illum ipsum dolorum iste a culpa! Dignissimos quisquam voluptatibus id at!</p>
 </a>
 </div>
@@ -94,17 +94,45 @@
   <h1 style=" text-shadow: 5px 7px 10px rgb(0, 0, 0);">SOLICITE O SEU ORÇAMENTO NA <STRONG>REAL SOLAR</STRONG></h1><br>
   <h3 style=" text-shadow: 5px 7px 10px rgb(0, 0, 0);"> CONFIRA E COMECE A ECONOMIZAR ENERGIA DESDE JÁ!</h3>
   <br>
-    <button type="button" class="btn btn-success">SOLICITAR ORÇAMENTO</button>
-    <br>
-  </div>
+    <button type="button" class="btn btn-success" onclick="showModal()">SOLICITAR ORÇAMENTO</button>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+          <span class="close-button" onclick="closeModal()">
+              &times;
+          </span>
+          <form>
+            <br><br>
+            <div class="registroForm">
+            <div class="mb-3">
+              <h6 style="color: black;">FAÇA O SEU CADASTRO</h6>
+              <br>
+              <label for="InputEmail1" class="form-label" style="color: black;">Endereço de E-mail:</label>
+              <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label for="InputName1" class="form-label" style="color: black;">Nome Completo:</label>
+                <input type="name" class="form-control" id="InputName1" aria-describedby="nameHelp">
+              </div>
+            </div>
+            <div class="mb-3">
+                <label for="InputNumber1" class="form-label" style="color: black;">Telefone:</label>
+                <input type="tel" class="form-control" id="InputNumber1" aria-describedby="numberHelp">
+              </div>
+              <button type="button" class="btn btn-outline-warning" >REGISTRAR</button>
+            </div>
+            </form>
+            </div>
+    </div>
+  
     <div class="bancobv">
     <h4 style=" text-shadow: 5px 7px 10px rgb(0, 0, 0);">TAMBÉM OFERECEMOS A OPÇÃO DE SIMULAÇÃO DE ORÇAMENTO COM O <i>Banco BV</i>.</h4>
     <br>
-    <button type="button" class="btn btn-warning">SIMULAR ORÇAMENTO</button>
+    <a href="https://www.bv.com.br/emprestimos/emprestimo-pessoal" target="_blank">
+    <button type="button" class="btn btn-warning">SIMULAR ORÇAMENTO</button> </a>
     <br>
     <br>
     <h6 style="text-shadow: 8px 10px 10px rgb(0, 0, 0);">Real Solar: Inovação e praticidade para facilitar o seu dia a dia com soluções inteligentes e sustentáveis</h6>
-
+  </div>
   </div>
   </div>
 <hr>
@@ -152,6 +180,8 @@
       <p>© 2024 Real Solar. Todos os direitos reservados.</p>
     </div>
     </div>
+    <script src="/http.js"></script>
+    <script src="/frontend/javascript/modal.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
