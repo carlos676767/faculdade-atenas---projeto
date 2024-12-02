@@ -1,21 +1,23 @@
-async function httpRequest(nome, email) {
-  const httpRequest = await fetch(`http://localhost:8080/cadastrar`, {
-    method: `POST`,
-    body: JSON.stringify({ nome: nome, email: email }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
 
-  const response = await httpRequest.json();
-  console.log(response);
-}
 
-function registrarUsuario() {
+class Registro {
+  static async httpRequest(nome, email){
+    const httpRequest = await fetch(`http://localhost:8080/cadastrar`, {
+      method: `POST`,
+      body: JSON.stringify({ nome: nome, email: email }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  
+    const response = await httpRequest.json();
+    alert(JSON.stringify(response))
+  }
 
-  const nome = document.getElementById('InputName1').value;
-  const email = document.getElementById('InputEmail1').value;
-  const telefone = document.getElementById('InputNumber1').value;
 
-  httpRequest(nome, email, telefone);
+  static async userDados(){
+    const nome = document.getElementById('InputName1').value;
+    const email = document.getElementById('InputEmail1').value;
+    await this.httpRequest(nome, email)
+  }
 }
